@@ -36,8 +36,6 @@
 	}catch(SQLException e){
 	  out.println(e.getMessage());
   }
-
 %>
-
 </body>
 </html>
