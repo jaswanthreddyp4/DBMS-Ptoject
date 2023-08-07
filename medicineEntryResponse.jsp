@@ -6,16 +6,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Medicine-Entry-Response</title>
+<style>
+
+   *{
+            margin: 0px;
+            text-align: center;
+        }
+        body{
+            background-image: url('https://images.unsplash.com/photo-1587621144431-845c71bc9fe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=723&q=80');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h2{
+            position: relative;
+            top: 40vh;
+        }
+        button{
+            background-color:black;
+            position: relative;
+            top: 45vh;
+            border:  0.13vw solid black;
+            border-radius:5px;
+            cursor: pointer;
+            color: white;
+            height: 4.5vh;
+            width:5.5vw;
+        }
+        button:hover{
+            color: white;
+            background-color:gray;
+        }
+        button:active{
+            color: white;
+            background-color: rgb(187, 174, 174);
+        }
+
+</style>
 <script>
        function action(){
     	   window.location.href="medicineEntry.jsp";
        }
-
-
 </script>
 </head>
 <body>
-
 <%
      String name=request.getParameter("medicineName");
      String id=request.getParameter("medicineId");
@@ -25,8 +59,8 @@
      String boxName=request.getParameter("boxName");
      String quantity=request.getParameter("quantity");
      
-     out.print("<h3>"+"Medicine : "+name+" of id : "+id+" manufactured by "+manufacturer+" is to be placed in box :"+boxName+"</h3>");
-     
+     out.print("<h2>"+"Medicine : "+name+" of id : "+id+" manufactured by "+manufacturer+" is to be placed in box :"+boxName+"</h2>");
+     out.println("<br><br>");
      Connection myConnection=null;
      PreparedStatement myStatement=null;
      ResultSet myResult=null;
@@ -50,9 +84,9 @@
     int rowsAffected = myStatement.executeUpdate();
 
     if (rowsAffected > 0) {
-        out.println("<h3>Medicine successfully entered into the database.</h3>");
+        out.println("<h2>Medicine successfully entered into the database.</h2>");
     } else {
-        out.println("<h3>Failed to insert medicine into the database.</h3>");
+        out.println("<h2>Failed to insert medicine into the database.</h2>");
     }
 
 %>
